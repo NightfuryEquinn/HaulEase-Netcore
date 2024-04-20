@@ -18,7 +18,7 @@ namespace HaulEaseNetcore.Models
     {
       if (!optionsBuilder.IsConfigured)
       {
-        optionsBuilder.UseSqlServer("");
+        optionsBuilder.UseSqlServer("Data Source=haulease-db.cj2se06k8m4v.us-east-1.rds.amazonaws.com;Initial Catalog=hauleasedb;User ID=hauleaseadmin;Password=hauleaseadmin;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
       }
     }
 
@@ -32,36 +32,28 @@ namespace HaulEaseNetcore.Models
 
         entity.Property(e => e.Username)
           .IsRequired()
-          .HasMaxLength(255)
-          .HasColumnName("username");
+          .HasMaxLength(255);
         
         entity.Property(e => e.Avatar)
-          .IsRequired()
-          .HasColumnName("avatar");
+          .IsRequired();
 
         entity.Property(e => e.Email)
           .IsRequired()
-          .HasMaxLength(255)
-          .HasColumnName("email");
+          .HasMaxLength(255);
         
         entity.Property(e => e.Password)
           .IsRequired()
-          .HasMaxLength(255)
-          .HasColumnName("password");
+          .HasMaxLength(255);
 
         entity.Property(e => e.Address)
-          .IsRequired()
-          .HasColumnName("address");
+          .IsRequired();
         
-        entity.Property(e => e.Company)
-          .HasColumnName("company");
+        entity.Property(e => e.Company);
 
         entity.Property(e => e.CompanyEmail)
-          .HasMaxLength(255)
-          .HasColumnName("companyEmail");
+          .HasMaxLength(255);
 
-        entity.Property(e => e.CompanyAddress)
-          .HasColumnName("companyAddress");
+        entity.Property(e => e.CompanyAddress);
       });
 
       modelBuilder.Entity<Cargo>(entity => 
@@ -70,35 +62,27 @@ namespace HaulEaseNetcore.Models
 
         entity.Property(e => e.Type)
           .IsRequired()
-          .HasMaxLength(255)
-          .HasColumnName("type");
+          .HasMaxLength(255);
 
         entity.Property(e => e.Weight)
           .IsRequired()
-          .HasColumnName("weight")
           .HasColumnType("decimal(10,2)");
 
         entity.Property(e => e.Length)
           .IsRequired()
-          .HasColumnName("length")
           .HasColumnType("decimal(10,2)");
 
         entity.Property(e => e.Width)
           .IsRequired()
-          .HasColumnName("width")
           .HasColumnType("decimal(10,2)");
 
         entity.Property(e => e.Height)
           .IsRequired()
-          .HasColumnName("height")
           .HasColumnType("decimal(10,2)");
 
-        entity.Property(e => e.Image)
-          .HasColumnName("image");
+        entity.Property(e => e.Image);
 
-        entity.Property(e => e.Description)
-          .IsRequired()
-          .HasColumnName("description");
+        entity.Property(e => e.Description);
       });
 
       modelBuilder.Entity<Shipment>(entity => {
@@ -106,31 +90,25 @@ namespace HaulEaseNetcore.Models
 
         entity.Property(e => e.Status)
           .IsRequired()
-          .HasMaxLength(255)
-          .HasColumnName("status");
+          .HasMaxLength(255);
 
         entity.Property(e => e.Origin)
-          .IsRequired()
-          .HasColumnName("origin");
+          .IsRequired();
 
         entity.Property(e => e.Destination)
-          .IsRequired()
-          .HasColumnName("destination");
+          .IsRequired();
       });
 
       modelBuilder.Entity<Payment>(entity => {
         entity.ToTable("Payment");
 
         entity.Property(e => e.First)
-          .HasColumnName("first")
           .HasColumnType("decimal(10,2)");
 
         entity.Property(e => e.Second)
-          .HasColumnName("second")
           .HasColumnType("decimal(10,2)");
 
         entity.Property(e => e.Final)
-          .HasColumnName("final")
           .HasColumnType("decimal(10,2)");
       });
 
@@ -139,18 +117,15 @@ namespace HaulEaseNetcore.Models
 
         entity.Property(e => e.Time)
           .IsRequired()
-          .HasMaxLength(255)
-          .HasColumnName("time");
+          .HasMaxLength(255);
 
         entity.Property(e => e.Latitude)
           .IsRequired()
-          .HasColumnType("decimal(8,6)")
-          .HasColumnName("latitude");
+          .HasColumnType("decimal(8,6)");
 
         entity.Property(e => e.Longitude)
           .IsRequired()
-          .HasColumnType("decimal(9,5)")
-          .HasColumnName("longitude");
+          .HasColumnType("decimal(9,5)");
       });
 
       modelBuilder.Entity<Truck>(entity => {
@@ -158,18 +133,15 @@ namespace HaulEaseNetcore.Models
 
         entity.Property(e => e.Status)
           .IsRequired()
-          .HasMaxLength(255)
-          .HasColumnName("status");
+          .HasMaxLength(255);
 
         entity.Property(e => e.DriverName)
           .IsRequired()
-          .HasMaxLength(255)
-          .HasColumnName("driverName");
+          .HasMaxLength(255);
 
         entity.Property(e => e.LicensePlate)
           .IsRequired()
-          .HasMaxLength(255)
-          .HasColumnName("licensePlate");
+          .HasMaxLength(255);
       });
 
       OnModelCreatingPartial(modelBuilder);
