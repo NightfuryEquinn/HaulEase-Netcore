@@ -24,6 +24,23 @@ namespace HaulEaseNetcore.Controllers
       return Ok(_shipmentList);
     }
 
+    // GET: api/shipment/consignor/id
+    [HttpGet("consignor/{consignorId}")]
+    public async Task<ActionResult<IEnumerable<Shipment>>> GetShipmentsByConsignor(int consignorId)
+    {
+      var _shipmentList = await _context.Shipments.Where(
+        s => s.ConsignorId == consignorId
+      )
+      .ToListAsync();
+
+      if (_shipmentList == null)
+      {
+        return NotFound();
+      }
+
+      return Ok(_shipmentList);
+    }
+
     // GET: api/shipment/1
     [HttpGet("{id}")]
     public async Task<ActionResult<Shipment>> GetShipment(int id)

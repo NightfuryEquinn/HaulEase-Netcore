@@ -154,6 +154,9 @@ namespace HaulEaseNetcore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShipmentId"));
 
+                    b.Property<int?>("ConsignorId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Destination")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

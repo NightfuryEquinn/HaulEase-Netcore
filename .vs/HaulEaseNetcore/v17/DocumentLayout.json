@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\ZxianYip\\Local_Docs\\Degree\\amca\\Assignment\\Codes\\HaulEaseNetcore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3B880F49-ADE3-4A2A-97AB-F5637C9B4964}|HaulEaseNetcore\\HaulEaseNetcore.csproj|c:\\users\\zxianyip\\local_docs\\degree\\amca\\assignment\\codes\\hauleasenetcore\\hauleasenetcore\\controllers\\shipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B880F49-ADE3-4A2A-97AB-F5637C9B4964}|HaulEaseNetcore\\HaulEaseNetcore.csproj|solutionrelative:hauleasenetcore\\controllers\\shipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3B880F49-ADE3-4A2A-97AB-F5637C9B4964}|HaulEaseNetcore\\HaulEaseNetcore.csproj|c:\\users\\zxianyip\\local_docs\\degree\\amca\\assignment\\codes\\hauleasenetcore\\hauleasenetcore\\controllers\\consignorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3B880F49-ADE3-4A2A-97AB-F5637C9B4964}|HaulEaseNetcore\\HaulEaseNetcore.csproj|solutionrelative:hauleasenetcore\\controllers\\consignorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,19 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ConsignorController.cs",
               "DocumentMoniker": "C:\\Users\\ZxianYip\\Local_Docs\\Degree\\amca\\Assignment\\Codes\\HaulEaseNetcore\\HaulEaseNetcore\\Controllers\\ConsignorController.cs",
               "RelativeDocumentMoniker": "HaulEaseNetcore\\Controllers\\ConsignorController.cs",
               "ToolTip": "C:\\Users\\ZxianYip\\Local_Docs\\Degree\\amca\\Assignment\\Codes\\HaulEaseNetcore\\HaulEaseNetcore\\Controllers\\ConsignorController.cs",
               "RelativeToolTip": "HaulEaseNetcore\\Controllers\\ConsignorController.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACgAAAAFAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T07:01:10.796Z",
+              "WhenOpened": "2024-05-12T04:33:56.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ShipmentController.cs",
+              "DocumentMoniker": "C:\\Users\\ZxianYip\\Local_Docs\\Degree\\amca\\Assignment\\Codes\\HaulEaseNetcore\\HaulEaseNetcore\\Controllers\\ShipmentController.cs",
+              "RelativeDocumentMoniker": "HaulEaseNetcore\\Controllers\\ShipmentController.cs",
+              "ToolTip": "C:\\Users\\ZxianYip\\Local_Docs\\Degree\\amca\\Assignment\\Codes\\HaulEaseNetcore\\HaulEaseNetcore\\Controllers\\ShipmentController.cs",
+              "RelativeToolTip": "HaulEaseNetcore\\Controllers\\ShipmentController.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAA1wBwAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-12T04:25:49.354Z",
               "EditorCaption": ""
             }
           ]

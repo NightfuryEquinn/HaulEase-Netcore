@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HaulEaseNetcore.Migrations
 {
     [DbContext(typeof(HaulEaseDBContext))]
-    [Migration("20240509140908_haulease")]
-    partial class haulease
+    [Migration("20240512043941_hauleasedb")]
+    partial class hauleasedb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -156,6 +156,9 @@ namespace HaulEaseNetcore.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShipmentId"));
+
+                    b.Property<int?>("ConsignorId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Destination")
                         .IsRequired()

@@ -5,7 +5,7 @@
 namespace HaulEaseNetcore.Migrations
 {
     /// <inheritdoc />
-    public partial class haulease : Migration
+    public partial class hauleasedb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -80,6 +80,7 @@ namespace HaulEaseNetcore.Migrations
                     Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ReceiverName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ReceiverContact = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ConsignorId = table.Column<int>(type: "int", nullable: true),
                     PaymentId = table.Column<int>(type: "int", nullable: true),
                     TrackingId = table.Column<int>(type: "int", nullable: true)
                 },

@@ -18,7 +18,7 @@ namespace HaulEaseNetcore.Models
     {
       if (!optionsBuilder.IsConfigured)
       {
-        optionsBuilder.UseSqlServer("Data Source=haulease-db.cj2se06k8m4v.us-east-1.rds.amazonaws.com;Initial Catalog=haulease;User ID=hauleaseadmin;Password=hauleaseadmin;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        optionsBuilder.UseSqlServer("Data Source=haulease-db.cj2se06k8m4v.us-east-1.rds.amazonaws.com;Initial Catalog=hauleasedb;User ID=hauleaseadmin;Password=hauleaseadmin;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
       }
     }
 
