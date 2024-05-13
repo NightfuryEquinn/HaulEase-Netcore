@@ -28,9 +28,10 @@ namespace HaulEaseNetcore.Controllers
     [HttpGet("email/{email}/password/{password}")]
     public async Task<ActionResult<Consignor>> CheckConsignor(string email, string password)
     {
-      var _consignor = await _context.Consignors.FirstOrDefaultAsync(
-        c => c.Email == email && c.Password == password
-      );
+      var _consignor = await _context.Consignors
+        .FirstOrDefaultAsync(
+          c => c.Email == email && c.Password == password
+        );
 
       if (_consignor == null) 
       {
@@ -44,9 +45,10 @@ namespace HaulEaseNetcore.Controllers
     [HttpGet("email/{email}")]
     public async Task<ActionResult<Consignor>> CheckConsignorEmail(string email)
     {
-      var _consignor = await _context.Consignors.FirstOrDefaultAsync(
-        c => c.Email == email
-      );
+      var _consignor = await _context.Consignors
+        .FirstOrDefaultAsync(
+          c => c.Email == email
+        );
 
       if (_consignor == null)
       {

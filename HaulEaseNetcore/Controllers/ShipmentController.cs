@@ -15,6 +15,12 @@ namespace HaulEaseNetcore.Controllers
       _context = context;
     }
 
+    public class ShipmentPayment
+    {
+      public required Shipment Shipment { get; set; }
+      public required int Payment { get; set; }
+    }
+
     // GET: api/shipment
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Shipment>>> GetShipments()
@@ -24,14 +30,13 @@ namespace HaulEaseNetcore.Controllers
       return Ok(_shipmentList);
     }
 
-    // GET: api/shipment/consignor/id
+    // GET: api/shipment/consignor/1
     [HttpGet("consignor/{consignorId}")]
     public async Task<ActionResult<IEnumerable<Shipment>>> GetShipmentsByConsignor(int consignorId)
     {
-      var _shipmentList = await _context.Shipments.Where(
-        s => s.ConsignorId == consignorId
-      )
-      .ToListAsync();
+      var _shipmentList = await _context.Shipments
+        .Where(s => s.ConsignorId == consignorId)
+        .ToListAsync();
 
       if (_shipmentList == null)
       {
@@ -39,6 +44,27 @@ namespace HaulEaseNetcore.Controllers
       }
 
       return Ok(_shipmentList);
+    }
+
+    // GET: api/shipment/consignor/1/payment
+    [HttpGet("consignor/{consignorId}/payment")]
+    public async Task<ActionResult<IEnumerable<ShipmentPayment>>> GetShipmentPayment(int consignorId)
+    {
+      var _shipmentPaymentList = await _context.Shipments
+        .Where(sp => sp.ConsignorId == consignorId)
+        .Select(sp => new ShipmentPayment 
+        {
+          Shipment = sp,
+          Payment = sp.PaymentId ?? 0
+        })
+        .ToListAsync();
+
+      if (_shipmentPaymentList == null)
+      {
+        return NotFound();
+      }
+
+      return Ok(_shipmentPaymentList);
     }
 
     // GET: api/shipment/1

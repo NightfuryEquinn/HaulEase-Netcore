@@ -493,6 +493,58 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "HaulEaseNetcore.Controllers.ShipmentController",
+    "Method": "GetShipmentsByConsignor",
+    "RelativePath": "api/Shipment/consignor/{consignorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "consignorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HaulEaseNetcore.Models.Shipment, HaulEaseNetcore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HaulEaseNetcore.Controllers.ShipmentController",
+    "Method": "GetShipmentPayment",
+    "RelativePath": "api/Shipment/consignor/{consignorId}/payment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "consignorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HaulEaseNetcore.Models.Shipment, HaulEaseNetcore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "HaulEaseNetcore.Controllers.TrackingController",
     "Method": "GetTrackings",
     "RelativePath": "api/Tracking",
