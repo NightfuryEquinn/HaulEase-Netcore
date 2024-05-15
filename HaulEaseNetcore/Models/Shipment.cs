@@ -11,5 +11,6 @@
     public int? ConsignorId { get; set; }
     public int? PaymentId { get; set; }
     public int? TrackingId { get; set; }
+    public int? TruckId { get; set; }
   }
 }

@@ -5,7 +5,7 @@
 namespace HaulEaseNetcore.Migrations
 {
     /// <inheritdoc />
-    public partial class hauleasedb : Migration
+    public partial class haulease : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,9 +23,7 @@ namespace HaulEaseNetcore.Migrations
                     Height = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConsignorId = table.Column<int>(type: "int", nullable: true),
-                    ShipmentId = table.Column<int>(type: "int", nullable: true),
-                    TruckId = table.Column<int>(type: "int", nullable: true)
+                    ShipmentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -82,7 +80,8 @@ namespace HaulEaseNetcore.Migrations
                     ReceiverContact = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ConsignorId = table.Column<int>(type: "int", nullable: true),
                     PaymentId = table.Column<int>(type: "int", nullable: true),
-                    TrackingId = table.Column<int>(type: "int", nullable: true)
+                    TrackingId = table.Column<int>(type: "int", nullable: true),
+                    TruckId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -110,7 +109,6 @@ namespace HaulEaseNetcore.Migrations
                 {
                     TruckId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Status = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     DriverName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     LicensePlate = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
                 },

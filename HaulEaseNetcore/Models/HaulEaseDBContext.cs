@@ -18,7 +18,7 @@ namespace HaulEaseNetcore.Models
     {
       if (!optionsBuilder.IsConfigured)
       {
-        optionsBuilder.UseSqlServer("Data Source=haulease-db.cj2se06k8m4v.us-east-1.rds.amazonaws.com;Initial Catalog=hauleasedb;User ID=hauleaseadmin;Password=hauleaseadmin;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        optionsBuilder.UseSqlServer("Data Source=haulease-db.cj2se06k8m4v.us-east-1.rds.amazonaws.com;Initial Catalog=haulease;User ID=hauleaseadmin;Password=hauleaseadmin;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
       }
     }
 
@@ -102,11 +102,7 @@ namespace HaulEaseNetcore.Models
 
         entity.Property(e => e.Description);
 
-        entity.Property(e => e.ConsignorId);
-
         entity.Property(e => e.ShipmentId);
-
-        entity.Property(e => e.TruckId);
       });
 
       modelBuilder.Entity<Shipment>(entity => {
@@ -133,9 +129,13 @@ namespace HaulEaseNetcore.Models
         entity.Property(e => e.ReceiverContact)
           .IsRequired();
 
+        entity.Property(e => e.ConsignorId);
+        
         entity.Property(e => e.PaymentId);
-
+        
         entity.Property(e => e.TrackingId);
+
+        entity.Property(e => e.TruckId);
       });
 
       modelBuilder.Entity<Payment>(entity => {
@@ -184,10 +184,6 @@ namespace HaulEaseNetcore.Models
 
         entity.Property(e => e.TruckId)
           .ValueGeneratedOnAdd();
-
-        entity.Property(e => e.Status)
-          .IsRequired()
-          .HasMaxLength(255);
 
         entity.Property(e => e.DriverName)
           .IsRequired()

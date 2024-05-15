@@ -21,6 +21,18 @@ namespace HaulEaseNetcore.Controllers
       public required int Payment { get; set; }
     }
 
+    public class ShipmentTracking
+    {
+      public required Shipment Shipment { get; set; }
+      public required int Tracking { get; set; }
+    }
+
+    public class ShipmentTruck
+    {
+      public required Shipment Shipment { get; set; }
+      public required int Truck { get; set; }
+    }
+
     // GET: api/shipment
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Shipment>>> GetShipments()
@@ -65,6 +77,48 @@ namespace HaulEaseNetcore.Controllers
       }
 
       return Ok(_shipmentPaymentList);
+    }
+
+    // GET: api/shipment/consignor/1/tracking
+    [HttpGet("consignor/{consignorId}/tracking")]
+    public async Task<ActionResult<IEnumerable<ShipmentTracking>>> GetShipmentTracking(int consignorId)
+    {
+      var _shipmentTrackingList = await _context.Shipments
+        .Where(st => st.ConsignorId == consignorId)
+        .Select(st => new ShipmentTracking
+        {
+          Shipment = st,
+          Tracking = st.TrackingId ?? 0
+        })
+        .ToListAsync();
+
+      if (_shipmentTrackingList == null)
+      {
+        return NotFound();
+      }
+
+      return Ok(_shipmentTrackingList);
+    }
+
+    // GET: api/shipment/consignor/1/truck
+    [HttpGet("consignor/{consignorId}/truck")]
+    public async Task<ActionResult<IEnumerable<ShipmentTruck>>> GetShipmentTruck(int consignorId)
+    {
+      var _shipmentTruckList = await _context.Shipments
+        .Where(str => str.ConsignorId == consignorId)
+        .Select(str => new ShipmentTruck
+        {
+          Shipment = str,
+          Truck = str.TruckId ?? 0
+        })
+        .ToListAsync();
+
+      if (_shipmentTruckList == null)
+      {
+        return NotFound();
+      }
+
+      return Ok(_shipmentTruckList);
     }
 
     // GET: api/shipment/1

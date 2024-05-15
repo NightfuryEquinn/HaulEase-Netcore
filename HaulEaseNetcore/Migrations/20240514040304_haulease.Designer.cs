@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HaulEaseNetcore.Migrations
 {
     [DbContext(typeof(HaulEaseDBContext))]
-    [Migration("20240512043941_hauleasedb")]
-    partial class hauleasedb
+    [Migration("20240514040304_haulease")]
+    partial class haulease
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,9 +34,6 @@ namespace HaulEaseNetcore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CargoId"));
 
-                    b.Property<int?>("ConsignorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -50,9 +47,6 @@ namespace HaulEaseNetcore.Migrations
                         .HasColumnType("decimal(10,2)");
 
                     b.Property<int?>("ShipmentId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TruckId")
                         .HasColumnType("int");
 
                     b.Property<string>("Type")
@@ -187,6 +181,9 @@ namespace HaulEaseNetcore.Migrations
                     b.Property<int?>("TrackingId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TruckId")
+                        .HasColumnType("int");
+
                     b.HasKey("ShipmentId");
 
                     b.ToTable("Shipment", (string)null);
@@ -230,11 +227,6 @@ namespace HaulEaseNetcore.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("LicensePlate")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");

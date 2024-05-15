@@ -10,8 +10,6 @@
     public double Height { get; set; }
     public string? Image { get; set; }
     public string? Description { get; set; }
-    public int? ConsignorId { get; set; }
     public int? ShipmentId { get; set; }
-    public int? TruckId { get; set; }
   }
 }
