@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HaulEaseNetcore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0746f54dd1dcf7b9b4cb906bca76010e7c81d10e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cd2766cdd019501b02dca3ee4164d28ed6bbed6")]
 [assembly: System.Reflection.AssemblyProductAttribute("HaulEaseNetcore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HaulEaseNetcore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -18,19 +18,19 @@ namespace HaulEaseNetcore.Controllers
     public class ShipmentPayment
     {
       public required Shipment Shipment { get; set; }
-      public required int Payment { get; set; }
+      public required Payment Payment { get; set; }
     }
 
     public class ShipmentTracking
     {
       public required Shipment Shipment { get; set; }
-      public required int Tracking { get; set; }
+      public required Tracking Tracking { get; set; }
     }
 
     public class ShipmentTruck
     {
       public required Shipment Shipment { get; set; }
-      public required int Truck { get; set; }
+      public required Truck Truck { get; set; }
     }
 
     // GET: api/shipment
@@ -64,11 +64,16 @@ namespace HaulEaseNetcore.Controllers
     {
       var _shipmentPaymentList = await _context.Shipments
         .Where(sp => sp.ConsignorId == consignorId)
-        .Select(sp => new ShipmentPayment 
-        {
-          Shipment = sp,
-          Payment = sp.PaymentId ?? 0
-        })
+        .Join(
+          _context.Payments,
+          shipment => shipment.PaymentId,
+          payment => payment.PaymentId, 
+          (shipment, payment) => new ShipmentPayment
+          { 
+            Shipment = shipment,
+            Payment = payment
+          }
+        )
         .ToListAsync();
 
       if (_shipmentPaymentList == null)
@@ -85,11 +90,16 @@ namespace HaulEaseNetcore.Controllers
     {
       var _shipmentTrackingList = await _context.Shipments
         .Where(st => st.ConsignorId == consignorId)
-        .Select(st => new ShipmentTracking
-        {
-          Shipment = st,
-          Tracking = st.TrackingId ?? 0
-        })
+        .Join(
+          _context.Trackings,
+          shipment => shipment.TrackingId,
+          tracking => tracking.TrackingId,
+          (shipment, tracking) => new ShipmentTracking
+          {
+            Shipment = shipment,
+            Tracking = tracking
+          }
+        )
         .ToListAsync();
 
       if (_shipmentTrackingList == null)
@@ -106,11 +116,16 @@ namespace HaulEaseNetcore.Controllers
     {
       var _shipmentTruckList = await _context.Shipments
         .Where(str => str.ConsignorId == consignorId)
-        .Select(str => new ShipmentTruck
-        {
-          Shipment = str,
-          Truck = str.TruckId ?? 0
-        })
+        .Join(
+          _context.Trucks,
+          shipment => shipment.TruckId,
+          truck => truck.TruckId,
+          (shipment, truck) => new ShipmentTruck
+          {
+            Shipment = shipment,
+            Truck = truck
+          }
+        )
         .ToListAsync();
 
       if (_shipmentTruckList == null)
