@@ -73,7 +73,20 @@ namespace HaulEaseNetcore.Controllers
         return BadRequest();
       }
 
-      _context.Entry(_cargo).State = EntityState.Modified;
+      var existingCargo = await _context.Cargos.FindAsync(id);
+      if (existingCargo == null)
+      {
+        return NotFound();
+      }
+
+      if (string.IsNullOrEmpty(_cargo.Image))
+      {
+        _cargo.Image = existingCargo.Image;
+      }
+
+      // Update modified data
+      _context.Entry(existingCargo).CurrentValues.SetValues(_cargo);
+      _context.Entry(existingCargo).State = EntityState.Modified;
 
       try
       {
